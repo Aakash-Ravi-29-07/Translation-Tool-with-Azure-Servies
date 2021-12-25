@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Speech Translation</title>
+</head>
+
+<body>
+    <!-- nav menu -->
+    <div class="ui container">
+        <div class="ui secondary pointing menu">
+            <a class="item" href="/">
+                Text Translation
+            </a>
+            <a class="item" href="/speech-to-text">
+                Speech to text
+            </a>
+            <a class="active item" href="/speech-translation">
+                Speech translation
+            </a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="ui container">
+        <button class="ui button green" id="translate-speech">Start speaking</button>
+        <br><br>
+        <div class="ui form">
+            <!-- from language-->
+            <div class="fields">
+                <label for="select-from-language">
+                    <h3>Select Language: </h3>
+                </label>
+                <select class="ui search dropdown" id="select-from-language">
+                    <option value="ar-SA">Arabic</option>
+                    <option value="ca-ES">Catalan</option>
+                    <option value="zh-CN">Chinese (Simplified)</option>
+                    <option value="zh-HK">Chinese (Traditional)</option>
+                    <option value="hr-HR">Croatian</option>
+                    <option value="en-US">English</option>
+                    <option value="fr-FR">French</option>
+                    <option value="de-DE">German</option>
+                    <option value="el-GR">Greek</option>
+                    <option value="he-IL">Hebrew</option>
+                    <option value="hi-IN">Hindi</option>
+                    <option value="ta-IN">Hindi</option>
+                    <option value="it-IT">Italian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="pt-BR">Portuguese</option>
+                    <option value="ru-RU">Russian</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="th-TH">Thai</option>
+                    <option value="tr-TR">Turkish</option>
+                    <option value="vi-VN">Vietnamese</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="ui form">
+            <!-- to language -->
+            <div class="fields">
+                <label for="select-to-language">
+                    <h3>Select Language: </h3>
+                </label>
+                <select class="ui search dropdown" id="select-to-language">
+                    <option value="ar-SA">Arabic</option>
+                    <option value="ca-ES">Catalan</option>
+                    <option value="zh-CN">Chinese (Simplified)</option>
+                    <option value="zh-HK">Chinese (Traditional)</option>
+                    <option value="hr-HR">Croatian</option>
+                    <option value="en-US">English</option>
+                    <option value="fr-FR">French</option>
+                    <option value="de-DE">German</option>
+                    <option value="el-GR">Greek</option>
+                    <option value="he-IL">Hebrew</option>
+                    <option value="hi-IN">Hindi</option>
+                    <option value="ta-IN">Tamil</option>
+                    <option value="it-IT">Italian</option>
+                    <option value="ja-JP">Japanese</option>
+                    <option value="ko-KR">Korean</option>
+                    <option value="pt-BR">Portuguese</option>
+                    <option value="ru-RU">Russian</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="th-TH">Thai</option>
+                    <option value="tr-TR">Turkish</option>
+                    <option value="vi-VN">Vietnamese</option>
+                </select>
+            </div>
+        </div>
+        <div class="ui form">
+            <label>
+                <h2>Text</h2>
+            </label>
+            <!-- display translation result -->
+            <textarea id="speech-translated-text" placeholder="Translation result will appear here"></textarea>
+        </div>
+    </div>
+
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="static/scripts/index.js">
+    </script>
+</body>
+
+</html>

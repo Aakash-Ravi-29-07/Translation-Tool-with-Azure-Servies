@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speech to text</title>
+  <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui secondary pointing menu">
+            <a class="item" href="/">
+                Text Translation
+            </a>
+            <a class="active item" href="/speech-to-text">
+                Speech to text
+            </a>
+            <a class="item" href="/speech-translation">
+                Speech translation
+            </a>
+        </div>
+    </div>
+    <br>
+    <br>
+  <div class="ui container">
+        <button class="ui button green" id="button">Start speaking</button>
+        <br><br>
+      <div class="ui form">
+            <label>
+                <h2>Text</h2>
+            </label>
+            <textarea id="text" placeholder="Text will appear here"></textarea>
+        </div>
+  </div>
+
+  <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+
+  <script>
+    var phraseDiv;
+    var button;
+    var subscriptionKey, serviceRegion;
+    var SpeechSDK;
+    var recognizer;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      button = document.getElementById("button");
+      //Enter your speech or cognitive services subscription key and region
+      subscriptionKey = "";
+      serviceRegion = "";
+      phraseDiv = document.getElementById("text");
+
+      button.addEventListener("click", function () {
+        button.disabled = true;
+        phraseDiv.innerHTML = "";
+        var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
+
+        speechConfig.speechRecognitionLanguage = "en-US";
+        var audioConfig  = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+        recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+
+        recognizer.recognizeOnceAsync(
+          function (result) {
+            button.disabled = false;
+            phraseDiv.innerHTML += result.text;
+            window.console.log(result);
+
+            recognizer.close();
+            recognizer = undefined;
+          },
+          function (err) {
+            button.disabled = false;
+            phraseDiv.innerHTML += err;
+            window.console.log(err);
+
+            recognizer.close();
+            recognizer = undefined;
+          });
+      });
+
+      
+    });
+  </script>
+</body>
+</html>
